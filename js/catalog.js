@@ -9,16 +9,11 @@ cart.addItem([]);
 // On screen load, we call this method to put all of the product options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
-
-  //TODO: Add an <option> tag inside the form's select for each product
   let parentElement = document.getElementById('items');
-  let option = document.createElement('option');
   for (let i = 0; i < Product.allProducts.length; i++ ) {
+    let option = document.createElement('option');
     parentElement.appendChild(option);
-    option.textContent = Product.allProducts[i];
-    
-    // let i in Product.allProducts
-
+    option.textContent = Product.allProducts[i].name;
   }
 
 }
@@ -27,8 +22,7 @@ function populateForm() {
 // object, save the whole thing back to local storage and update the screen
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
-
-  // TODO: Prevent the page from reloading
+event.preventDefault();
 
   // Do all the things ...
   addSelectedItemToCart();
@@ -40,6 +34,13 @@ function handleSubmit(event) {
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
+  let itemEL = document.getElementById('items').text;
+  // let selectedItem = select.options[select.selectedIndex].value;
+  // console.log(selectedItem);
+  let quantityField = document.getElementById('quantity');
+  let quantity = parseInt(quantityField.value);
+  let newItem = new CartItem(itemEL, quantity)
+  Cart.addItem(newItem);
   // TODO: suss out the item picked from the select list
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart

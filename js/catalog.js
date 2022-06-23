@@ -11,8 +11,13 @@ cart.addItem([]);
 function populateForm() {
 
   //TODO: Add an <option> tag inside the form's select for each product
-  const selectElement = document.getElementById('items');
-  for (let i in Product.allProducts) {
+  let parentElement = document.getElementById('items');
+  let option = document.createElement('option');
+  for (let i = 0; i < Product.allProducts.length; i++ ) {
+    parentElement.appendChild(option);
+    option.textContent = Product.allProducts[i];
+    
+    // let i in Product.allProducts
 
   }
 

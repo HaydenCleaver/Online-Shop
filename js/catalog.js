@@ -22,7 +22,8 @@ function populateForm() {
 // object, save the whole thing back to local storage and update the screen
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
-event.preventDefault();
+  
+  event.preventDefault();
 
   // Do all the things ...
   addSelectedItemToCart();
@@ -52,14 +53,24 @@ function addSelectedItemToCart() {
   // TODO: using those, add one item to the Cart
 }
 
+//Finished?
 // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() { 
   let counterEl = document.getElementById('itemCount')
-  counterEl.textContent(cart.items.length);
+  counterEl.textContent= cart.items.length;
 }
   
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+// Finished? : As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
+
+  let itemEL = document.getElementById('items').value;
+  let quantityField = document.getElementById('quantity');
+  let quantity = parseInt(quantityField.value);
+
+  let contentsEl = document.getElementById('cartContents');
+  let contentsDiv = document.createElement('div');
+  contentsEl.appendChild(contentsDiv);
+  contentsDiv.textContent = [itemEL, quantity];
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
 }

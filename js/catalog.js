@@ -34,13 +34,17 @@ event.preventDefault();
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
-  let itemEL = document.getElementById('items').text;
-  // let selectedItem = select.options[select.selectedIndex].value;
-  // console.log(selectedItem);
+
+  let itemEL = document.getElementById('items').value;
   let quantityField = document.getElementById('quantity');
   let quantity = parseInt(quantityField.value);
-  let newItem = new CartItem(itemEL, quantity)
-  Cart.addItem(newItem);
+
+  console.log(itemEL);
+  console.log(quantity);
+
+  cart.addItem(itemEL, quantity);
+
+  console.log(cart);
   // TODO: suss out the item picked from the select list
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart

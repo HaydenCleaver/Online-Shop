@@ -23,7 +23,7 @@ Cart.prototype.removeItem = function(item) {
   // Note: You will have to decide what kind of parameter to pass in here!
   let valueFromLocalStorage = localStorage.getItem('cart');
   let data = JSON.parse(valueFromLocalStorage);
-  data.remove(item);
+  data.slice(item);
 
   let dataTwo = JSON.stringify(data);
   localStorage.setItem('cart', dataTwo);
